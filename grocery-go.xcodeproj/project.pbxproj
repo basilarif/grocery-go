@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE4637AF3FF6F637A553408F /* Pods_grocery_go.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E9F2CFA41A532A95CDC3EB /* Pods_grocery_go.framework */; };
 		FCA16929243D28E600163D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16928243D28E600163D14 /* AppDelegate.swift */; };
 		FCA1692B243D28E600163D14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1692A243D28E600163D14 /* ViewController.swift */; };
 		FCA1692E243D28E600163D14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA1692C243D28E600163D14 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		FCA16933243D28E800163D14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA16931243D28E800163D14 /* LaunchScreen.storyboard */; };
 		FCA1693E243D28E800163D14 /* grocery_goTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1693D243D28E800163D14 /* grocery_goTests.swift */; };
 		FCA16949243D28E800163D14 /* grocery_goUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16948243D28E800163D14 /* grocery_goUITests.swift */; };
+		FCA16959243D2D5A00163D14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCA16958243D2D5A00163D14 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		82E9F2CFA41A532A95CDC3EB /* Pods_grocery_go.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_grocery_go.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B233B6B0979A6EE3A5D309D0 /* Pods-grocery-go.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grocery-go.debug.xcconfig"; path = "Target Support Files/Pods-grocery-go/Pods-grocery-go.debug.xcconfig"; sourceTree = "<group>"; };
+		EE312A92EEF0803D40F1E470 /* Pods-grocery-go.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grocery-go.release.xcconfig"; path = "Target Support Files/Pods-grocery-go/Pods-grocery-go.release.xcconfig"; sourceTree = "<group>"; };
 		FCA16925243D28E600163D14 /* grocery-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "grocery-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA16928243D28E600163D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCA1692A243D28E600163D14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		FCA16944243D28E800163D14 /* grocery-goUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "grocery-goUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA16948243D28E800163D14 /* grocery_goUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grocery_goUITests.swift; sourceTree = "<group>"; };
 		FCA1694A243D28E800163D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCA16958243D2D5A00163D14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE4637AF3FF6F637A553408F /* Pods_grocery_go.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CABDD949A180207CF5474EBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B233B6B0979A6EE3A5D309D0 /* Pods-grocery-go.debug.xcconfig */,
+				EE312A92EEF0803D40F1E470 /* Pods-grocery-go.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DC71904CC48E1F5C9C9E39CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82E9F2CFA41A532A95CDC3EB /* Pods_grocery_go.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FCA1691C243D28E600163D14 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +105,8 @@
 				FCA1693C243D28E800163D14 /* grocery-goTests */,
 				FCA16947243D28E800163D14 /* grocery-goUITests */,
 				FCA16926243D28E600163D14 /* Products */,
+				CABDD949A180207CF5474EBA /* Pods */,
+				DC71904CC48E1F5C9C9E39CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +129,7 @@
 				FCA1692F243D28E800163D14 /* Assets.xcassets */,
 				FCA16931243D28E800163D14 /* LaunchScreen.storyboard */,
 				FCA16934243D28E800163D14 /* Info.plist */,
+				FCA16958243D2D5A00163D14 /* GoogleService-Info.plist */,
 			);
 			path = "grocery-go";
 			sourceTree = "<group>";
@@ -132,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCA1694D243D28E800163D14 /* Build configuration list for PBXNativeTarget "grocery-go" */;
 			buildPhases = (
+				7C1949C2579C720180657F76 /* [CP] Check Pods Manifest.lock */,
 				FCA16921243D28E600163D14 /* Sources */,
 				FCA16922243D28E600163D14 /* Frameworks */,
 				FCA16923243D28E600163D14 /* Resources */,
+				20E9FA9E0ACCE5D500167B51 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA16959243D2D5A00163D14 /* GoogleService-Info.plist in Resources */,
 				FCA16933243D28E800163D14 /* LaunchScreen.storyboard in Resources */,
 				FCA16930243D28E800163D14 /* Assets.xcassets in Resources */,
 				FCA1692E243D28E600163D14 /* Main.storyboard in Resources */,
@@ -250,6 +280,73 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20E9FA9E0ACCE5D500167B51 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-grocery-go/Pods-grocery-go-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-grocery-go/Pods-grocery-go-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C1949C2579C720180657F76 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-grocery-go-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FCA16921243D28E600163D14 /* Sources */ = {
@@ -430,6 +527,7 @@
 		};
 		FCA1694E243D28E800163D14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B233B6B0979A6EE3A5D309D0 /* Pods-grocery-go.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -447,6 +545,7 @@
 		};
 		FCA1694F243D28E800163D14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE312A92EEF0803D40F1E470 /* Pods-grocery-go.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
