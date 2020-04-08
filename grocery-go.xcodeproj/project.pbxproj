@@ -16,6 +16,15 @@
 		FCA1693E243D28E800163D14 /* grocery_goTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1693D243D28E800163D14 /* grocery_goTests.swift */; };
 		FCA16949243D28E800163D14 /* grocery_goUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16948243D28E800163D14 /* grocery_goUITests.swift */; };
 		FCA16959243D2D5A00163D14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCA16958243D2D5A00163D14 /* GoogleService-Info.plist */; };
+		FCA16960243D4C5F00163D14 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1695F243D4C5F00163D14 /* signUpViewController.swift */; };
+		FCA16962243D4C6F00163D14 /* signInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16961243D4C6F00163D14 /* signInViewController.swift */; };
+		FCA16964243D4C7F00163D14 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16963243D4C7F00163D14 /* homeViewController.swift */; };
+		FCA16966243D4EFC00163D14 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16965243D4EFC00163D14 /* global.swift */; };
+		FCA16968243D4F6100163D14 /* postViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16967243D4F6100163D14 /* postViewController.swift */; };
+		FCA1696A243D4F6A00163D14 /* createNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16969243D4F6A00163D14 /* createNewViewController.swift */; };
+		FCA1696C243D4F7700163D14 /* addPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1696B243D4F7600163D14 /* addPhotosViewController.swift */; };
+		FCA1696E243D4F7E00163D14 /* chooseStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1696D243D4F7E00163D14 /* chooseStoreViewController.swift */; };
+		FCA16970243D4FEF00163D14 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1696F243D4FEF00163D14 /* settingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +62,15 @@
 		FCA16948243D28E800163D14 /* grocery_goUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grocery_goUITests.swift; sourceTree = "<group>"; };
 		FCA1694A243D28E800163D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCA16958243D2D5A00163D14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FCA1695F243D4C5F00163D14 /* signUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
+		FCA16961243D4C6F00163D14 /* signInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signInViewController.swift; sourceTree = "<group>"; };
+		FCA16963243D4C7F00163D14 /* homeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		FCA16965243D4EFC00163D14 /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
+		FCA16967243D4F6100163D14 /* postViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postViewController.swift; sourceTree = "<group>"; };
+		FCA16969243D4F6A00163D14 /* createNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createNewViewController.swift; sourceTree = "<group>"; };
+		FCA1696B243D4F7600163D14 /* addPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addPhotosViewController.swift; sourceTree = "<group>"; };
+		FCA1696D243D4F7E00163D14 /* chooseStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chooseStoreViewController.swift; sourceTree = "<group>"; };
+		FCA1696F243D4FEF00163D14 /* settingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +142,13 @@
 			isa = PBXGroup;
 			children = (
 				FCA16928243D28E600163D14 /* AppDelegate.swift */,
-				FCA1692A243D28E600163D14 /* ViewController.swift */,
+				FCA1695A243D4BCA00163D14 /* Credentials */,
+				FCA1695B243D4BFC00163D14 /* Home */,
+				FCA1695C243D4C0D00163D14 /* Post */,
+				FCA1695D243D4C1E00163D14 /* Messages */,
+				FCA1695E243D4C2F00163D14 /* Settings */,
 				FCA1692C243D28E600163D14 /* Main.storyboard */,
+				FCA16965243D4EFC00163D14 /* global.swift */,
 				FCA1692F243D28E800163D14 /* Assets.xcassets */,
 				FCA16931243D28E800163D14 /* LaunchScreen.storyboard */,
 				FCA16934243D28E800163D14 /* Info.plist */,
@@ -150,6 +173,50 @@
 				FCA1694A243D28E800163D14 /* Info.plist */,
 			);
 			path = "grocery-goUITests";
+			sourceTree = "<group>";
+		};
+		FCA1695A243D4BCA00163D14 /* Credentials */ = {
+			isa = PBXGroup;
+			children = (
+				FCA1692A243D28E600163D14 /* ViewController.swift */,
+				FCA1695F243D4C5F00163D14 /* signUpViewController.swift */,
+				FCA16961243D4C6F00163D14 /* signInViewController.swift */,
+			);
+			path = Credentials;
+			sourceTree = "<group>";
+		};
+		FCA1695B243D4BFC00163D14 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FCA16963243D4C7F00163D14 /* homeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FCA1695C243D4C0D00163D14 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				FCA16967243D4F6100163D14 /* postViewController.swift */,
+				FCA16969243D4F6A00163D14 /* createNewViewController.swift */,
+				FCA1696B243D4F7600163D14 /* addPhotosViewController.swift */,
+				FCA1696D243D4F7E00163D14 /* chooseStoreViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		FCA1695D243D4C1E00163D14 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		FCA1695E243D4C2F00163D14 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FCA1696F243D4FEF00163D14 /* settingViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,8 +420,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA1696C243D4F7700163D14 /* addPhotosViewController.swift in Sources */,
+				FCA16966243D4EFC00163D14 /* global.swift in Sources */,
+				FCA16962243D4C6F00163D14 /* signInViewController.swift in Sources */,
 				FCA1692B243D28E600163D14 /* ViewController.swift in Sources */,
 				FCA16929243D28E600163D14 /* AppDelegate.swift in Sources */,
+				FCA16968243D4F6100163D14 /* postViewController.swift in Sources */,
+				FCA16970243D4FEF00163D14 /* settingViewController.swift in Sources */,
+				FCA1696A243D4F6A00163D14 /* createNewViewController.swift in Sources */,
+				FCA1696E243D4F7E00163D14 /* chooseStoreViewController.swift in Sources */,
+				FCA16964243D4C7F00163D14 /* homeViewController.swift in Sources */,
+				FCA16960243D4C5F00163D14 /* signUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
