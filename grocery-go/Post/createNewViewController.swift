@@ -10,7 +10,12 @@ import Foundation
 import UIKit
 import Firebase
 
-class createNewViewController: UIViewController, UITextViewDelegate {
+class imageArrayCell: UICollectionViewCell {
+    
+    @IBOutlet weak var image: UIImageView!
+}
+
+class createNewViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate  {
     
     @IBOutlet weak var chooseStoreButton: UIButton!
     @IBOutlet weak var titleText: UITextView!
@@ -19,8 +24,16 @@ class createNewViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var forDeliveryButton: UIButton!
     @IBOutlet weak var toDeliverButton: UIButton!
     @IBOutlet weak var addPhotosButton: UIButton!
+    @IBOutlet weak var addMorePhotosButton: UIButton!
+    @IBOutlet weak var photosCollectionView: UICollectionView!
     @IBOutlet weak var postAddButton: UIButton!
+    
+    var receiptImageArr:[UIImage] = [UIImage()]
+    var receiptFileNameArr:[String] = []
+    var receiptImage:UIImage = UIImage()
+    
     var adPurpose: String!
+    let reuseIdentifier = "cell"
     
     // Choosing store: Currently unavailable
     @IBAction func chooseStore(_ sender: Any) {
@@ -106,10 +119,95 @@ class createNewViewController: UIViewController, UITextViewDelegate {
     }
     
     // Adding Photos
-    @IBAction func addPhotos(_ sender: Any) {
-        self.performSegue(withIdentifier: "addPhotos", sender: self)
+    
+    func openCamera()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
+    func openGallery()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have permission to access gallery.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let image = info[.originalImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+        DispatchQueue.main.async {
+            self.receiptImage = image
+            self.receiptImageArr.append(self.receiptImage)
+        }
+    }
+    
+    @IBAction func addPhotos(_ sender: Any) {
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "addPhotos", sender: self)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            return receiptImageArr.count
+        }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! imageArrayCell
+            cell.image.image = receiptImageArr[indexPath.item] //image
+            cell.backgroundColor = UIColor.clear // make cell more visible in our example project
+        cell.image.setNeedsDisplay()
+            
+            return cell
+        }
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        // handle tap events
+//        if collectionView == collectionViewForAchievements {
+//            index = indexPath.item
+//            print(indexPath.item)
+//            self.performSegue(withIdentifier: "achievementsEarnedSegue", sender: nil)
+//        } else {
+//            index = indexPath.item
+//            self.performSegue(withIdentifier: "specialBadgeExpandedViewSegeue", sender: nil)
+//        }
+//    }
+//
     // Posting Ad
     @IBAction func postAdd(_ sender: Any) {
             // Add firebase call here
@@ -119,6 +217,10 @@ class createNewViewController: UIViewController, UITextViewDelegate {
     
     
     override func viewDidLoad() {
+//        photosCollectionView.isHidden = true
+//        addMorePhotosButton.isHidden = true
+        receiptImageArr.remove(at: 0)
+        addPhotosButton.isHidden = true
         chooseStoreButton.isHidden = true
         titleText.delegate = self
         descriptionText.delegate = self
@@ -127,7 +229,12 @@ class createNewViewController: UIViewController, UITextViewDelegate {
         toDeliverButton.isSelected = false
         forDeliveryButton.layer.cornerRadius = 20
         toDeliverButton.layer.cornerRadius = 20
+        photosCollectionView.delegate = self
         postAddButton.isEnabled = false
         postAddButton.layer.cornerRadius = 20
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        photosCollectionView.reloadData()
     }
 }
