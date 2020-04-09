@@ -10,6 +10,31 @@ import Foundation
 import UIKit
 import Firebase
 
+
+func hexStringToUIColor (hex:String) -> UIColor {
+    var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+    
+    if (cString.hasPrefix("#")) {
+        cString.remove(at: cString.startIndex)
+    }
+    
+    if ((cString.count) != 6) {
+        return UIColor.gray
+    }
+    
+    var rgbValue:UInt64 = 0
+    Scanner(string: cString).scanHexInt64(&rgbValue)
+    
+    return UIColor(
+        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+        alpha: CGFloat(1.0)
+    )
+}
+
+let buttonSelectedColor = hexStringToUIColor(hex: "#51AD2A")
+
 class imageArrayCell: UICollectionViewCell {
     
     @IBOutlet weak var image: UIImageView!
@@ -93,7 +118,7 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
         }
         else {
             forDeliveryButton.isSelected = true
-            forDeliveryButton.backgroundColor = .green
+            forDeliveryButton.backgroundColor = buttonSelectedColor
             forDeliveryButton.setTitleColor(UIColor.white, for: .selected)
         }
         toDeliverButton.isSelected = false
@@ -110,7 +135,7 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
         }
         else {
             toDeliverButton.isSelected = true
-            toDeliverButton.backgroundColor = .green
+            toDeliverButton.backgroundColor = buttonSelectedColor
             toDeliverButton.setTitleColor(UIColor.white, for: .selected)
         }
         forDeliveryButton.isSelected = false
@@ -197,18 +222,23 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
             return cell
         }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        // handle tap events
-//        if collectionView == collectionViewForAchievements {
-//            index = indexPath.item
-//            print(indexPath.item)
-//            self.performSegue(withIdentifier: "achievementsEarnedSegue", sender: nil)
-//        } else {
-//            index = indexPath.item
-//            self.performSegue(withIdentifier: "specialBadgeExpandedViewSegeue", sender: nil)
-//        }
-//    }
-//
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let imageView = UIImageView(image:receiptImageArr[indexPath.row])
+        imageView.frame = self.view.frame
+        imageView.backgroundColor = .black
+        imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        imageView.addGestureRecognizer(tap)
+        
+        self.view.addSubview(imageView)
+    }
+    
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
+
     // Posting Ad
     @IBAction func postAdd(_ sender: Any) {
             // Add firebase call here
@@ -221,7 +251,11 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
 //        photosCollectionView.isHidden = true
 //        addMorePhotosButton.isHidden = true
         receiptImageArr.remove(at: 0)
-        addPhotosButton.isHidden = true
+        print("Number of item: ")
+        print(receiptImageArr.count)
+        addPhotosButton.isHidden = false
+        addMorePhotosButton.isHidden = true
+        photosCollectionView.isHidden = true
         chooseStoreButton.isHidden = true
         containerView.layer.cornerRadius = 20
         titleText.delegate = self
@@ -244,5 +278,17 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
     
     override func viewDidAppear(_ animated: Bool) {
         photosCollectionView.reloadData()
+        print(receiptImageArr.count)
+        if  receiptImageArr.count >= 1 {
+            print("Yes")
+            addPhotosButton.isHidden = true
+            addMorePhotosButton.isHidden = false
+            photosCollectionView.isHidden = false
+        } else {
+            print("no")
+            addPhotosButton.isHidden = false
+            addMorePhotosButton.isHidden = true
+            photosCollectionView.isHidden = true
+        }
     }
 }
