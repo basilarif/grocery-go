@@ -18,6 +18,7 @@ class imageArrayCell: UICollectionViewCell {
 class createNewViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate  {
     
     @IBOutlet weak var chooseStoreButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleText: UITextView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var priceText: UITextView!
@@ -222,9 +223,16 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
         receiptImageArr.remove(at: 0)
         addPhotosButton.isHidden = true
         chooseStoreButton.isHidden = true
+        containerView.layer.cornerRadius = 20
         titleText.delegate = self
+//        titleText.clipsToBounds = true
+//        titleText.layer.cornerRadius = 20
         descriptionText.delegate = self
+//        descriptionText.clipsToBounds = true
+//        descriptionText.layer.cornerRadius = 20
         priceText.delegate = self
+//        priceText.clipsToBounds = true
+//        priceText.layer.cornerRadius = 20
         forDeliveryButton.isSelected = false
         toDeliverButton.isSelected = false
         forDeliveryButton.layer.cornerRadius = 20
