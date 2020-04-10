@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import CoreLocation
 
 
 func hexStringToUIColor (hex:String) -> UIColor {
@@ -40,7 +41,7 @@ class imageArrayCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
 }
 
-class createNewViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate  {
+class createNewViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate  {
     
     @IBOutlet weak var chooseStoreButton: UIButton!
     @IBOutlet weak var containerView: UIView!
@@ -60,6 +61,10 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
     
     var adPurpose: String!
     let reuseIdentifier = "cell"
+    
+    var locationManager = CLLocationManager()
+    var currentLocationLat = 0 as Double
+    var currentLocationLon = 0 as Double
     
     // Choosing store: Currently unavailable
     @IBAction func chooseStore(_ sender: Any) {
@@ -93,20 +98,20 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
         }
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if titleText.text == "" {
-            titleText.text = "Title"
-            titleText.textColor = .lightGray
-        }
-        if descriptionText.text == "" {
-            descriptionText.text = "Description"
-            descriptionText.textColor = .lightGray
-        }
-        if priceText.text == "" {
-            priceText.text = "Price"
-            priceText.textColor = .lightGray
-        }
-    }
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        if titleText.text == "" {
+//            titleText.text = "Title"
+//            titleText.textColor = .lightGray
+//        }
+//        if descriptionText.text == "" {
+//            descriptionText.text = "Description"
+//            descriptionText.textColor = .lightGray
+//        }
+//        if priceText.text == "" {
+//            priceText.text = "Price"
+//            priceText.textColor = .lightGray
+//        }
+//    }
 
     
     // Buttons
@@ -241,6 +246,18 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
 
     // Posting Ad
     @IBAction func postAdd(_ sender: Any) {
+        print("Title:")
+        print(titleText.text!)
+        print("Description:")
+        print(descriptionText.text!)
+        print("Price:")
+        print(priceText.text!)
+        print("Type of ad:")
+        print(adPurpose!)
+        print("lat:")
+        print(String(currentLocationLat))
+        print("long:")
+        print(String(currentLocationLon))
             // Add firebase call here
             // Need to call to add new post into database and show it in the "my posts" sections
             //self.performSegue(withIdentifier: "post", sender: self)
@@ -248,8 +265,13 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
     
     
     override func viewDidLoad() {
-//        photosCollectionView.isHidden = true
-//        addMorePhotosButton.isHidden = true
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
         receiptImageArr.remove(at: 0)
         print("Number of item: ")
         print(receiptImageArr.count)
@@ -290,5 +312,12 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
             addMorePhotosButton.isHidden = true
             photosCollectionView.isHidden = true
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        currentLocationLat = Double(locValue.latitude)
+        currentLocationLon = Double(locValue.longitude)
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
 }

@@ -582,10 +582,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCO-vs-TXI">
-                                <rect key="frame" x="139" y="26" width="97" height="33"/>
+                                <rect key="frame" x="85.5" y="26" width="204" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="BGF-ZP-PgS"/>
-                                    <constraint firstAttribute="width" constant="97" id="NZd-NN-gaM"/>
+                                    <constraint firstAttribute="width" constant="204" id="NZd-NN-gaM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <state key="normal" title="Create New">
