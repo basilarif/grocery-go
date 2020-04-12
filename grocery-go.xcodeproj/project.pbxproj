@@ -26,6 +26,7 @@
 		FCA1696E243D4F7E00163D14 /* chooseStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1696D243D4F7E00163D14 /* chooseStoreViewController.swift */; };
 		FCA16970243D4FEF00163D14 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1696F243D4FEF00163D14 /* settingViewController.swift */; };
 		FCA6702F2442AAB60097BDDB /* yourPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6702E2442AAB60097BDDB /* yourPost.swift */; };
+		FCA670312442C8630097BDDB /* postEnlargedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA670302442C8630097BDDB /* postEnlargedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		FCA1696D243D4F7E00163D14 /* chooseStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chooseStoreViewController.swift; sourceTree = "<group>"; };
 		FCA1696F243D4FEF00163D14 /* settingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
 		FCA6702E2442AAB60097BDDB /* yourPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yourPost.swift; sourceTree = "<group>"; };
+		FCA670302442C8630097BDDB /* postEnlargedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postEnlargedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			children = (
 				FCA16967243D4F6100163D14 /* postViewController.swift */,
 				FCA16969243D4F6A00163D14 /* createNewViewController.swift */,
+				FCA670302442C8630097BDDB /* postEnlargedViewController.swift */,
 				FCA1696B243D4F7600163D14 /* addPhotosViewController.swift */,
 				FCA1696D243D4F7E00163D14 /* chooseStoreViewController.swift */,
 			);
@@ -433,6 +436,7 @@
 				FCA16970243D4FEF00163D14 /* settingViewController.swift in Sources */,
 				FCA1696A243D4F6A00163D14 /* createNewViewController.swift in Sources */,
 				FCA1696E243D4F7E00163D14 /* chooseStoreViewController.swift in Sources */,
+				FCA670312442C8630097BDDB /* postEnlargedViewController.swift in Sources */,
 				FCA16964243D4C7F00163D14 /* homeViewController.swift in Sources */,
 				FCA16960243D4C5F00163D14 /* signUpViewController.swift in Sources */,
 			);

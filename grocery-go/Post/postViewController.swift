@@ -39,6 +39,7 @@ class postViewController: UIViewController, UITableViewDelegate, UITableViewData
     var priceString: String!
     var timeStampString: String!
     var picsArray:[UIImage] = [UIImage()]
+    var storeIndexPath: String!
     
     @IBOutlet weak var yourPostTable: UITableView!
     
@@ -86,14 +87,23 @@ class postViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "yourPostExpandedView", sender: nil)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "yourPostExpandedView", sender: nil)
+    }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let destination = segue.destination as? TroubleCodesViewController,
-//            let indexPath = troubleCodeTable.indexPathForSelectedRow {
-//            destination.TroubleCodes = tCodes[indexPath.section]
-//        }
-//    }
+    var tempTitle: String!
+    var tempDescription: String!
+    var tempPrice: String!
+    
+    var imagesArray: [UIImage] = []
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? postEnlargedViewController,
+            let indexPath = yourPostTable.indexPathForSelectedRow {
+            destination.tempTitle = postData[indexPath.section].title
+            destination.tempDescription = postData[indexPath.section].description
+            destination.tempPrice = postData[indexPath.section].price
+            destination.imagesArray = picsArray
+        }
+    }
 }
