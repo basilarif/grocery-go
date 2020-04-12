@@ -24,22 +24,7 @@ class homeViewController: UIViewController {
         // Create a reference to the file you want to download
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let fireStorePath = "gs://grocery-go-4268b.appspot.com"
-//        let downloadURL = StorageReference().child(fireStorePath + "/user/\(uid)")
-//
-//        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-//        downloadURL.getData(maxSize: 1 * 1024 * 1024) { data, error in
-//            if let error = error {
-//                print("error")
-//                // Uh-oh, an error occurred!
-//            } else {
-//                // Data for "images/island.jpg" is returned
-//                let image = UIImage(data: data!)
-//                print("success")
-//                self.newImage.image = image
-//                myAccount.profilePicture = image
-//            }
-//        }
-        let storageRef = Storage.storage().reference(withPath: fireStorePath + "/user/\(uid)")
+        let storageRef = Storage.storage().reference(withPath: fireStorePath + "/user/profile-picture/\(uid)")
         storageRef.getData(maxSize: 5*1024*1024){ (data, error) in
             if let error = error{
                 self.newImage.image = UIImage(named: "background-profile")

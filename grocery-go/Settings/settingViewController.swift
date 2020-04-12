@@ -77,7 +77,7 @@ class settingsViewController: UIViewController, UIImagePickerControllerDelegate,
             self.profilePhoto.image = self.uploadedPic
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let fireStorePath = "gs://grocery-go-4268b.appspot.com"
-            let storageRef = Storage.storage().reference().child(fireStorePath + "/user/\(uid)")
+            let storageRef = Storage.storage().reference().child(fireStorePath + "/user/profile-picture/\(uid)")
             
             guard let imageData = self.uploadedPic.jpegData(compressionQuality:0.7) else { return }
             

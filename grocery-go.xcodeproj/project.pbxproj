@@ -25,6 +25,7 @@
 		FCA1696C243D4F7700163D14 /* addPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1696B243D4F7600163D14 /* addPhotosViewController.swift */; };
 		FCA1696E243D4F7E00163D14 /* chooseStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1696D243D4F7E00163D14 /* chooseStoreViewController.swift */; };
 		FCA16970243D4FEF00163D14 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1696F243D4FEF00163D14 /* settingViewController.swift */; };
+		FCA6702F2442AAB60097BDDB /* yourPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6702E2442AAB60097BDDB /* yourPost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		FCA1696B243D4F7600163D14 /* addPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addPhotosViewController.swift; sourceTree = "<group>"; };
 		FCA1696D243D4F7E00163D14 /* chooseStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chooseStoreViewController.swift; sourceTree = "<group>"; };
 		FCA1696F243D4FEF00163D14 /* settingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
+		FCA6702E2442AAB60097BDDB /* yourPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yourPost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				FCA1695E243D4C2F00163D14 /* Settings */,
 				FCA1692C243D28E600163D14 /* Main.storyboard */,
 				FCA16965243D4EFC00163D14 /* global.swift */,
+				FCA6702E2442AAB60097BDDB /* yourPost.swift */,
 				FCA1692F243D28E800163D14 /* Assets.xcassets */,
 				FCA16931243D28E800163D14 /* LaunchScreen.storyboard */,
 				FCA16934243D28E800163D14 /* Info.plist */,
@@ -426,6 +429,7 @@
 				FCA1692B243D28E600163D14 /* ViewController.swift in Sources */,
 				FCA16929243D28E600163D14 /* AppDelegate.swift in Sources */,
 				FCA16968243D4F6100163D14 /* postViewController.swift in Sources */,
+				FCA6702F2442AAB60097BDDB /* yourPost.swift in Sources */,
 				FCA16970243D4FEF00163D14 /* settingViewController.swift in Sources */,
 				FCA1696A243D4F6A00163D14 /* createNewViewController.swift in Sources */,
 				FCA1696E243D4F7E00163D14 /* chooseStoreViewController.swift in Sources */,

@@ -66,6 +66,9 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
     var currentLocationLat = 0 as Double
     var currentLocationLon = 0 as Double
     
+    let uuid = UUID().uuidString
+    var timeStampString: String!
+    
     // Choosing store: Currently unavailable
     @IBAction func chooseStore(_ sender: Any) {
             self.performSegue(withIdentifier: "chooseStore", sender: self)
@@ -243,7 +246,22 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         sender.view?.removeFromSuperview()
     }
-
+    
+    func addCollectionViewPicsToFireBase() {
+        var pos = 0
+        while pos < receiptImageArr.count {
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+            let fireStorePath = "gs://grocery-go-4268b.appspot.com"
+            let storageRef = Storage.storage().reference().child(fireStorePath + "/posts/\(uid)/\(uuid)/\(pos+1)")
+            
+            guard let imageData = receiptImageArr[pos].jpegData(compressionQuality:0.7) else { return }
+            
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpg"
+            storageRef.putData(imageData, metadata: metaData)
+            pos += 1
+        }
+    }
     // Posting Ad
     @IBAction func postAdd(_ sender: Any) {
         print("Title:")
@@ -258,14 +276,47 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
         print(String(currentLocationLat))
         print("long:")
         print(String(currentLocationLon))
-//        let db = Firestore.firestore()
-//        db.collection("users").document(myAccount.userName).updateData([
-//            "lastName" : lastName.text!
-//            ])
-            // Add firebase call here
-            // Need to call to add new post into database and show it in the "my posts" sections
-            //self.performSegue(withIdentifier: "post", sender: self)
+        let coords: [String: Double] = [
+            "lat": currentLocationLat,
+            "long": currentLocationLon,
+            ]
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        let formatter = DateFormatter()
+        // initially set the format based on your datepicker date / server String
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let myString = formatter.string(from: time as Date) // string purpose I add here
+        // convert your string to date
+        let yourDate = formatter.date(from: myString)
+        let myStringafd = formatter.string(from: yourDate!)
+        timeStampString = myStringafd
+        print(time)
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        db.collection("posts").document(uuid).setData([
+            "title": self.titleText.text!,
+            "description": self.descriptionText.text!,
+            "price": self.priceText.text!,
+            "adPurpose": adPurpose,
+            "location": coords,
+            "timeStamp": time,
+            "userid": uid,
+            ])
+        addCollectionViewPicsToFireBase()
+        self.performSegue(withIdentifier: "postAdded", sender: self)
         }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let target = segue.destination as? postViewController {
+                target.titleString = titleText.text!
+                target.descriptionString = descriptionText.text!
+                target.priceString = priceText.text!
+                target.timeStampString = timeStampString
+                target.picsArray = receiptImageArr
+        }
+    }
     
     
     override func viewDidLoad() {
