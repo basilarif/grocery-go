@@ -10,5 +10,6 @@ target 'grocery-go' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Database'
   pod 'Firebase/Functions'
+  pod 'Firebase/Storage'
   pod 'Alamofire'
 end

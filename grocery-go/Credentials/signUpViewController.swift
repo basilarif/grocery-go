@@ -72,6 +72,7 @@ class signUpViewController: UIViewController {
             myAccount.userName = self.userName.text!
             myAccount.email = self.email.text!
             myAccount.password = self.password.text!//md5Hex
+//            myAccount.userID = authResult?.user.uid
             var ref:DocumentReference? = nil
             ref = db.collection("users").addDocument(data: docData) { err in
                 if let err = err {

@@ -258,6 +258,10 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
         print(String(currentLocationLat))
         print("long:")
         print(String(currentLocationLon))
+//        let db = Firestore.firestore()
+//        db.collection("users").document(myAccount.userName).updateData([
+//            "lastName" : lastName.text!
+//            ])
             // Add firebase call here
             // Need to call to add new post into database and show it in the "my posts" sections
             //self.performSegue(withIdentifier: "post", sender: self)
@@ -281,14 +285,8 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
         chooseStoreButton.isHidden = true
         containerView.layer.cornerRadius = 20
         titleText.delegate = self
-//        titleText.clipsToBounds = true
-//        titleText.layer.cornerRadius = 20
         descriptionText.delegate = self
-//        descriptionText.clipsToBounds = true
-//        descriptionText.layer.cornerRadius = 20
         priceText.delegate = self
-//        priceText.clipsToBounds = true
-//        priceText.layer.cornerRadius = 20
         forDeliveryButton.isSelected = false
         toDeliverButton.isSelected = false
         forDeliveryButton.layer.cornerRadius = 20
