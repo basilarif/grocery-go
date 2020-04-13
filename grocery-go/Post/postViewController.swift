@@ -67,7 +67,7 @@ class postViewController: UIViewController, UITableViewDelegate, UITableViewData
         postData = [
             yourPost(title: "", description: "", price: "", timeStamp: "", imageArray: [])
         ]
-        self.postData.append(yourPost(title: titleString ?? "", description: descriptionString ?? "", price: priceString ?? "", timeStamp: timeStampString ?? "", imageArray: picsArray))
+        self.postData.append(yourPost(title: titleString ?? "", description: descriptionString ?? "", price: priceString ?? "", timeStamp: "", imageArray: picsArray))
         self.postData.removeFirst()
         self.yourPostTable.reloadData()
         self.yourPostTable.contentSize.height = CGFloat(self.postData.count * 66)

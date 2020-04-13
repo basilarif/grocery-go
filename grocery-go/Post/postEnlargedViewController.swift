@@ -68,6 +68,7 @@ class postEnlargedViewController: UIViewController, UICollectionViewDataSource, 
         collectionView.delegate = self
         containerView.layer.cornerRadius = 20
         chatButton.layer.cornerRadius = 20
+        self.collectionView.reloadData()
     }
     
     
