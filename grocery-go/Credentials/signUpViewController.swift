@@ -61,32 +61,25 @@ class signUpViewController: UIViewController {
             self.userName.text = self.userName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             //setting up user object
-            let db = Firestore.firestore()
-            let docData: [String: Any] = [
-                "email": self.email.text!,
-                "username": self.userName.text!,
-                "password": self.password.text!,
-                "name": self.name.text!,
-                "uid"   : authResult?.user.uid
-            ]
             myAccount.userName = self.userName.text!
             myAccount.email = self.email.text!
             myAccount.password = self.password.text!//md5Hex
-//            myAccount.userID = authResult?.user.uid
-            var ref:DocumentReference? = nil
-            ref = db.collection("users").addDocument(data: docData) { err in
-                if let err = err {
-                    print("error adding document: \(err)")
-                } else {
-                    print("Document added with ID: \(ref!.documentID)")
-                    self.performSegue(withIdentifier: "signedUp", sender: self)
-                }
-            }
+            
+            // Add Data to firebase
+            let db = Firestore.firestore()
+            db.collection("users").document(emailComma).setData([
+                "email": self.email.text!,
+                "username": self.userName.text!,
+                "name": self.name.text!,
+                "uid"   : authResult?.user.uid
+                ])
+            self.performSegue(withIdentifier: "signedUp", sender: self)
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        createAccountButton.isEnabled = true
+        createAccountButton.layer.opacity = 0.4
+        createAccountButton.isEnabled = false
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

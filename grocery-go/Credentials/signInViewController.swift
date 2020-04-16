@@ -55,6 +55,8 @@ class signInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signInButton.layer.opacity = 0.4
+        signInButton.isEnabled = false
         self.emailBox.layer.cornerRadius = 10.0
         self.passwordBox.layer.cornerRadius = 10.0
         self.signInButton.layer.cornerRadius = 10.0

@@ -77,20 +77,7 @@ class homeViewController: UIViewController, UICollectionViewDataSource, UICollec
         ]
         //userName.text = "Welcome " + myAccount.userName
         
-        // Create a reference to the file you want to download
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//        let fireStorePath = "gs://grocery-go-4268b.appspot.com"
-//        let storageRef = Storage.storage().reference(withPath: fireStorePath + "/user/profile-picture/\(uid)")
-//        storageRef.getData(maxSize: 5*1024*1024){ (data, error) in
-//            if let error = error{
-//                self.newImage.image = UIImage(named: "background-profile")
-//                //print("Error \(error)")
-//            }
-//            if let data = data {
-//                //self.newImage.image = UIImage(data: data)
-//                myAccount.profilePicture = UIImage(data: data)
-//            }
-//        }
+        //Create a reference to the file you want to download
         let db = Firestore.firestore()
         db.collection("posts").getDocuments() { (querySnapshot, err) in
             if let err = err {

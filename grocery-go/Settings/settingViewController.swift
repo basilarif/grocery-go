@@ -21,11 +21,14 @@ class settingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func signOutUser(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
-            try firebaseAuth.signOut()
-            self.performSegue(withIdentifier: "backToSignIn", sender: self)
             myAccount.userName = ""
             myAccount.email = ""
             myAccount.password = ""
+            myAccount.name = ""
+            myAccount.userID = ""
+            //myAccount.profilePicture = nil
+            try firebaseAuth.signOut()
+            self.performSegue(withIdentifier: "backToSignIn", sender: self)
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
@@ -152,10 +155,22 @@ class settingsViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profilePhoto.layer.cornerRadius = profilePhoto.frame.size.width/2
-        profilePhoto.layer.borderColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0).cgColor
-        profilePhoto.layer.borderWidth = 2.4
-        profilePhoto.image = myAccount.profilePicture!
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let fireStorePath = "gs://grocery-go-4268b.appspot.com"
+        let storageRef = Storage.storage().reference(withPath: fireStorePath + "/user/profile-picture/\(uid)")
+        storageRef.getData(maxSize: 5*1024*1024){ (data, error) in
+            if let error = error{
+                print("Error \(error)")
+            }
+            if let data = data {
+                //self.newImage.image = UIImage(data: data)
+                
+                self.profilePhoto.image = UIImage(data: data)
+                self.profilePhoto.layer.cornerRadius = self.profilePhoto.frame.size.width/2
+                self.profilePhoto.layer.borderColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0).cgColor
+                self.profilePhoto.layer.borderWidth = 2.4
+            }
+        }
         signOutBtn.layer.cornerRadius = 20
         containerView.layer.cornerRadius = 20
         self.userName.text = myAccount.userName

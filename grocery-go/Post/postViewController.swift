@@ -64,6 +64,7 @@ class postViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewDidLoad() {
+        self.tabBarController?.tabBar.isHidden = false
         postData = [
             yourPost(title: "", description: "", price: "", timeStamp: "", imageArray: [])
         ]
@@ -81,7 +82,7 @@ class postViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.descriptionText?.text = postData[indexPath.section].description
         cell.priceText?.text = postData[indexPath.section].price
         cell.timeElapsed?.text = postData[indexPath.section].timeStamp
-        cell.cellPhoto?.image = postData[indexPath.section].imageArray[0]
+        //cell.cellPhoto?.image = postData[indexPath.section].imageArray[0]
         cell.layer.cornerRadius = 4
         cell.layer.borderColor = UIColor.black.cgColor
         return cell
