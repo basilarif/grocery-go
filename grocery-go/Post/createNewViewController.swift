@@ -12,29 +12,29 @@ import Firebase
 import CoreLocation
 
 
-func hexStringToUIColor (hex:String) -> UIColor {
-    var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-    
-    if (cString.hasPrefix("#")) {
-        cString.remove(at: cString.startIndex)
-    }
-    
-    if ((cString.count) != 6) {
-        return UIColor.gray
-    }
-    
-    var rgbValue:UInt64 = 0
-    Scanner(string: cString).scanHexInt64(&rgbValue)
-    
-    return UIColor(
-        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-        alpha: CGFloat(1.0)
-    )
-}
-
-let buttonSelectedColor = hexStringToUIColor(hex: "#51AD2A")
+//func hexStringToUIColor (hex:String) -> UIColor {
+//    var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+//
+//    if (cString.hasPrefix("#")) {
+//        cString.remove(at: cString.startIndex)
+//    }
+//
+//    if ((cString.count) != 6) {
+//        return UIColor.gray
+//    }
+//
+//    var rgbValue:UInt64 = 0
+//    Scanner(string: cString).scanHexInt64(&rgbValue)
+//
+//    return UIColor(
+//        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+//        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+//        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+//        alpha: CGFloat(1.0)
+//    )
+//}
+//
+//let buttonSelectedColor = hexStringToUIColor(hex: "#51AD2A")
 
 class imageArrayCell: UICollectionViewCell {
     
@@ -126,7 +126,7 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
         }
         else {
             forDeliveryButton.isSelected = true
-            forDeliveryButton.backgroundColor = buttonSelectedColor
+            forDeliveryButton.backgroundColor = groceryGoGreen//buttonSelectedColor
             forDeliveryButton.setTitleColor(UIColor.white, for: .selected)
         }
         toDeliverButton.isSelected = false
@@ -143,7 +143,7 @@ class createNewViewController: UIViewController, UITextViewDelegate, UIImagePick
         }
         else {
             toDeliverButton.isSelected = true
-            toDeliverButton.backgroundColor = buttonSelectedColor
+            toDeliverButton.backgroundColor = groceryGoGreen//buttonSelectedColor
             toDeliverButton.setTitleColor(UIColor.white, for: .selected)
         }
         forDeliveryButton.isSelected = false
