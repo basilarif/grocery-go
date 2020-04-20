@@ -64,7 +64,10 @@ class postViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewDidLoad() {
-        self.tabBarController?.tabBar.isHidden = false
+        navigationController?.isNavigationBarHidden = false
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        self.navigationController?.navigationBar.topItem?.title = "Post"
         postData = [
             yourPost(title: "", description: "", price: "", timeStamp: "", imageArray: [])
         ]

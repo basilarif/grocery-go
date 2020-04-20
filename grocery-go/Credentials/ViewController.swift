@@ -12,6 +12,7 @@ import Firebase
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
+        navigationController?.isNavigationBarHidden = true
         checkAuth()
         // Do any additional setup after loading the view, typically from a nib.
     }

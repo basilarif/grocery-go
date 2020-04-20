@@ -71,6 +71,10 @@ class homeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        self.navigationController?.navigationBar.topItem?.title = "Home"
         collectionView.delegate = self
         homePagePostData = [
             yourPost(title: "", description: "", price: "", timeStamp: "", imageArray: [])

@@ -40,6 +40,7 @@ class passwordResetViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        navigationController?.isNavigationBarHidden = true
         sendEmailButton.layer.opacity = 0.4
         sendEmailButton.isEnabled = false
         message.isHidden = true

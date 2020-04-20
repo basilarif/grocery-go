@@ -155,6 +155,11 @@ class settingsViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        self.navigationController?.navigationBar.topItem?.title = "Settings"
+        self.title = "Home"
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let fireStorePath = "gs://grocery-go-4268b.appspot.com"
         let storageRef = Storage.storage().reference(withPath: fireStorePath + "/user/profile-picture/\(uid)")

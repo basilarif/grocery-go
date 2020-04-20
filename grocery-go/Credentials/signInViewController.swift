@@ -55,6 +55,7 @@ class signInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         signInButton.layer.opacity = 0.4
         signInButton.isEnabled = false
         self.emailBox.layer.cornerRadius = 10.0

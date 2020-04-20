@@ -78,6 +78,7 @@ class signUpViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         createAccountButton.layer.opacity = 0.4
         createAccountButton.isEnabled = false
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
