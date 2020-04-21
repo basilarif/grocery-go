@@ -12,4 +12,5 @@ target 'grocery-go' do
   pod 'Firebase/Functions'
   pod 'Firebase/Storage'
   pod 'Alamofire'
+  pod 'MessageKit', '~> 3.0.0'
 end

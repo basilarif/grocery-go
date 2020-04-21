@@ -50,6 +50,7 @@ class homeViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.timeLabel.text = ""
         cell.backgroundColor = UIColor.green // make cell more visible in our example project
         cell.image.setNeedsDisplay()
+        //collectionView.reloadData()
         
         return cell
     }
@@ -79,7 +80,6 @@ class homeViewController: UIViewController, UICollectionViewDataSource, UICollec
         homePagePostData = [
             yourPost(title: "", description: "", price: "", timeStamp: "", imageArray: [])
         ]
-        //userName.text = "Welcome " + myAccount.userName
         
         //Create a reference to the file you want to download
         let db = Firestore.firestore()
@@ -131,9 +131,12 @@ class homeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 }
                 print(self.homePagePostData)
                 self.homePagePostData.removeFirst()
-                self.collectionView.reloadData()
+                //self.collectionView.reloadData()
             }
         }
     }
+//    override func viewDidAppear(_ animated: Bool) {
+//        collectionView.reloadData()
+//    }
 }
 

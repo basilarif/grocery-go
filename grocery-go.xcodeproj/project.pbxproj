@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		DE4637AF3FF6F637A553408F /* Pods_grocery_go.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E9F2CFA41A532A95CDC3EB /* Pods_grocery_go.framework */; };
+		FC00B172244EA5290046AC64 /* messagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00B171244EA5290046AC64 /* messagingViewController.swift */; };
+		FC00B174244EA8EB0046AC64 /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00B173244EA8EB0046AC64 /* chatViewController.swift */; };
+		FC00B176244EB45F0046AC64 /* message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00B175244EB45F0046AC64 /* message.swift */; };
+		FC00B178244EB7500046AC64 /* channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00B177244EB7500046AC64 /* channel.swift */; };
+		FC00B17A244EB7A80046AC64 /* dataBaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00B179244EB7A80046AC64 /* dataBaseRepresentation.swift */; };
 		FC46F8E2244908500081E017 /* passwordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46F8E1244908500081E017 /* passwordResetViewController.swift */; };
 		FCA16929243D28E600163D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16928243D28E600163D14 /* AppDelegate.swift */; };
 		FCA1692B243D28E600163D14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1692A243D28E600163D14 /* ViewController.swift */; };
@@ -52,6 +57,11 @@
 		82E9F2CFA41A532A95CDC3EB /* Pods_grocery_go.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_grocery_go.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B233B6B0979A6EE3A5D309D0 /* Pods-grocery-go.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grocery-go.debug.xcconfig"; path = "Target Support Files/Pods-grocery-go/Pods-grocery-go.debug.xcconfig"; sourceTree = "<group>"; };
 		EE312A92EEF0803D40F1E470 /* Pods-grocery-go.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grocery-go.release.xcconfig"; path = "Target Support Files/Pods-grocery-go/Pods-grocery-go.release.xcconfig"; sourceTree = "<group>"; };
+		FC00B171244EA5290046AC64 /* messagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messagingViewController.swift; sourceTree = "<group>"; };
+		FC00B173244EA8EB0046AC64 /* chatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
+		FC00B175244EB45F0046AC64 /* message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = message.swift; sourceTree = "<group>"; };
+		FC00B177244EB7500046AC64 /* channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = channel.swift; sourceTree = "<group>"; };
+		FC00B179244EB7A80046AC64 /* dataBaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataBaseRepresentation.swift; sourceTree = "<group>"; };
 		FC46F8E1244908500081E017 /* passwordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordResetViewController.swift; sourceTree = "<group>"; };
 		FCA16925243D28E600163D14 /* grocery-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "grocery-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA16928243D28E600163D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +167,9 @@
 				FCA1695E243D4C2F00163D14 /* Settings */,
 				FCA1692C243D28E600163D14 /* Main.storyboard */,
 				FCA16965243D4EFC00163D14 /* global.swift */,
+				FC00B175244EB45F0046AC64 /* message.swift */,
+				FC00B177244EB7500046AC64 /* channel.swift */,
+				FC00B179244EB7A80046AC64 /* dataBaseRepresentation.swift */,
 				FCA6702E2442AAB60097BDDB /* yourPost.swift */,
 				FCA670322446D6C90097BDDB /* tabViewController.swift */,
 				FCA1692F243D28E800163D14 /* Assets.xcassets */,
@@ -219,6 +232,8 @@
 		FCA1695D243D4C1E00163D14 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				FC00B171244EA5290046AC64 /* messagingViewController.swift */,
+				FC00B173244EA8EB0046AC64 /* chatViewController.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -374,6 +389,8 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
@@ -390,6 +407,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputBarAccessoryView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
@@ -437,12 +456,17 @@
 				FCA16962243D4C6F00163D14 /* signInViewController.swift in Sources */,
 				FCA1692B243D28E600163D14 /* ViewController.swift in Sources */,
 				FCA16929243D28E600163D14 /* AppDelegate.swift in Sources */,
+				FC00B176244EB45F0046AC64 /* message.swift in Sources */,
+				FC00B172244EA5290046AC64 /* messagingViewController.swift in Sources */,
+				FC00B174244EA8EB0046AC64 /* chatViewController.swift in Sources */,
 				FCA16968243D4F6100163D14 /* postViewController.swift in Sources */,
 				FCA6702F2442AAB60097BDDB /* yourPost.swift in Sources */,
 				FC46F8E2244908500081E017 /* passwordResetViewController.swift in Sources */,
 				FCA16970243D4FEF00163D14 /* settingViewController.swift in Sources */,
+				FC00B178244EB7500046AC64 /* channel.swift in Sources */,
 				FCA670332446D6C90097BDDB /* tabViewController.swift in Sources */,
 				FCA1696A243D4F6A00163D14 /* createNewViewController.swift in Sources */,
+				FC00B17A244EB7A80046AC64 /* dataBaseRepresentation.swift in Sources */,
 				FCA1696E243D4F7E00163D14 /* chooseStoreViewController.swift in Sources */,
 				FCA670312442C8630097BDDB /* postEnlargedViewController.swift in Sources */,
 				FCA16964243D4C7F00163D14 /* homeViewController.swift in Sources */,
